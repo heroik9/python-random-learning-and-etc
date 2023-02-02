@@ -1,14 +1,19 @@
 import psycopg2
 
-import db_params
-
 import prettytable
+
 
 while True:
     user = input("Enter user: ")
     psw = input("Enter password: ")
 
     if user == "admin" and psw == "bardakas":
+       
+        params = {"host": '',
+              "database": '',
+              "user": '',
+              "password": '',
+              "port": ''}
 
         def print_table():
             try:
@@ -21,7 +26,7 @@ while True:
 
                         prettytable1 = prettytable.PrettyTable()
 
-                        conn = psycopg2.connect(**db_params)
+                        conn = psycopg2.connect(**params)
                         cur = conn.cursor()
                         cur.execute("""SELECT * FROM {} ORDER BY id""".format(table_name))
                         query = cur.fetchall()
@@ -61,7 +66,7 @@ while True:
 
 
         def delete_row():
-            conn = psycopg2.connect(**db_params)
+            conn = psycopg2.connect(**params)
             cur = conn.cursor()
 
             question = input("\nDelete row? y/n: ")
@@ -91,7 +96,7 @@ while True:
 
 
         def alter_add_column():
-            conn = psycopg2.connect(**db_params)
+            conn = psycopg2.connect(**params)
             cur = conn.cursor()
 
             question = input("\nAdd column? y/n: ")
@@ -124,7 +129,7 @@ while True:
 
 
         def alter_drop_column():
-            conn = psycopg2.connect(**db_params)
+            conn = psycopg2.connect(**params)
             cur = conn.cursor()
 
             question = input("\nDelete column? y/n: ")
