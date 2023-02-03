@@ -1,4 +1,4 @@
-"""Since lists are indexed, lists can have items with the same value.
+"""Lists are indexed, lists can have items with the same value.
 List items can be of any data type - string, int and boolean."""
 
 list = [1, "a", "b", 2, "b", True]
