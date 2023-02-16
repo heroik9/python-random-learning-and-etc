@@ -7,7 +7,7 @@ while True:
     user = input("Enter user: ")
     psw = input("Enter password: ")
 
-    if user == "admin" and psw == "bardakas":
+    if user == "admin" and psw == "psw":
        
         params = {"host": '',
               "database": '',
